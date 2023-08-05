@@ -240,10 +240,8 @@ a.menu-link.active-link::after {
 
 .button-order-service:hover,
 .button-order-service:focus {
-	/* border-radius: 4px; */
 	background-color: var(--ocean, #404bbf);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-	/* border: 1px solid var(--ocean, #404bbf); */
 }
 
 /* Benefits Section */
@@ -532,7 +530,6 @@ a.menu-link.active-link::after {
 
 .footer-container {
 	display: flex;
-	gap: 120px;
 }
 
 .web-logo-footer {
@@ -557,14 +554,17 @@ a.menu-link.active-link::after {
 }
 
 .footer-text {
+	display: flex;
 	color: var(--cloud, #f4f4fd);
 	font-weight: 400;
+	flex-grow: 1;
 }
 
 .wrapper-footer-1 {
 	display: flex;
 	flex-direction: column;
 	gap: 17.5px;
+	margin-right: 120px;
 }
 
 .footer-social-media-text {
@@ -576,6 +576,7 @@ a.menu-link.active-link::after {
 	display: flex;
 	flex-direction: column;
 	gap: 17.5px;
+	margin-right: 80px;
 }
 
 .footer-icon-list {
@@ -608,11 +609,60 @@ a.menu-link.active-link::after {
 .wrapper-footer-3 {
 	display: flex;
 	flex-direction: column;
-	gap: 17.5px;
+	gap: 16px;
 }
 
-.footer-subscribe-text {
+.subscribe-text {
 	color: var(--white);
+	letter-spacing: 0.32px;
+}
+
+.subscribe-and-button {
+	display: flex;
+	gap: 24px;
+}
+.email-subscribe {
+	background-color: transparent;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0.48px;
+
+	color: var(--white);
+
+	width: 255px;
+	height: 40px;
+	padding: 8px 0 8px 16px;
+	border: 1px solid var(--white);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+}
+
+.subscribe-button {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+
+	font-weight: 500px;
+	font-size: 12px;
+	color: var(--white);
+	letter-spacing: 0.32px;
+	background-color: var(--iris);
+	padding: 8px 24px;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-button:hover,
+.subscribe-button:focus {
+	background-color: var(--ocean);
+}
+
+.subscribe-icon {
+	fill: var(--white);
 }
 
 /* MODAL WINDOW */
@@ -640,10 +690,6 @@ a.menu-link.active-link::after {
 
 	transform: translate(-50%, -50%) scale(1);
 	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop.is-hidden .modal {
-	/* transform: translate(-50%, -50%); */
 }
 
 .modal-close {
@@ -674,4 +720,127 @@ a.menu-link.active-link::after {
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
+}
+
+.form {
+	margin: 72px 24px 0px 24px;
+}
+
+.form-description {
+	text-align: center;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0.32px;
+	padding: 0px 10px;
+}
+
+.label {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 8px;
+	margin-top: 16px;
+
+	color: var(--lightslate);
+
+	font-size: 12px;
+
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.48px;
+}
+
+.label:hover .input,
+.label:focus-within .input {
+	border: 1px solid var(--iris);
+	outline: none;
+}
+
+.label:hover .modal-icon,
+.label:focus-within .modal-icon {
+	fill: var(--iris);
+}
+
+.label:hover .input-comment,
+.label:focus-within .input-comment {
+	border: 1px solid var(--iris);
+	outline: none;
+}
+
+.input {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.48px;
+	border-radius: 4px;
+	padding: 15px 0px 15px 37px;
+	border: 1px solid var(--navyblue-modal, rgba(46, 47, 66, 0.4));
+
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1) outline 250ms
+		cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-icon {
+	position: absolute;
+	top: 50%;
+	left: 16px;
+}
+
+.input-comment {
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.48px;
+	border-radius: 4px;
+	height: 120px;
+	border: 1px solid var(--navyblue-modal, rgba(46, 47, 66, 0.4));
+	padding-top: 8px;
+	padding-left: 16px;
+	resize: none;
+
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.policy {
+	display: flex;
+	align-items: center;
+	color: var(--lightslate, #8e8f99);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.48px;
+	margin-top: 16px;
+	margin-bottom: 24px;
+}
+
+.policy-underline {
+	text-decoration: underline;
+	color: var(--iris);
+}
+
+.terms-and-conditions-text {
+	margin-left: 8px;
+}
+
+.modal-send {
+	display: flex;
+	color: var(--white, #fff);
+
+	margin: 0 auto;
+	margin-bottom: 24px;
+
+	border-radius: 4px;
+	background: var(--iris, #4d5ae5);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+	padding: 16px 32px;
+	border: none;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-send:hover {
+	background-color: var(--ocean, #404bbf);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
