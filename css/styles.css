@@ -803,6 +803,7 @@ a.menu-link.active-link::after {
 }
 
 .policy {
+	position: relative;
 	display: flex;
 	align-items: center;
 	color: var(--lightslate, #8e8f99);
@@ -817,10 +818,16 @@ a.menu-link.active-link::after {
 .policy-underline {
 	text-decoration: underline;
 	color: var(--iris);
+	cursor: pointer;
 }
 
 .terms-and-conditions-text {
 	margin-left: 8px;
+}
+
+.checkbox {
+	position: absolute;
+	left: -9999px;
 }
 
 .modal-send {
@@ -843,4 +850,10 @@ a.menu-link.active-link::after {
 .modal-send:hover {
 	background-color: var(--ocean, #404bbf);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.icon-checkbox {
+	fill: transparent;
+	border: 1px solid var(--lightslate);
+	cursor: pointer;
 }
