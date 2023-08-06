@@ -636,6 +636,15 @@ a.menu-link.active-link::after {
 	border: 1px solid var(--white);
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
+
+	transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.email-subscribe:hover,
+.email-subscribe:focus {
+	outline: none;
+	border: 1px solid var(--iris);
 }
 
 .subscribe-button {
@@ -644,7 +653,7 @@ a.menu-link.active-link::after {
 	gap: 16px;
 
 	font-weight: 500px;
-	font-size: 12px;
+	font-size: 16px;
 	color: var(--white);
 	letter-spacing: 0.32px;
 	background-color: var(--iris);
@@ -681,10 +690,14 @@ a.menu-link.active-link::after {
 
 .modal {
 	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: normal;
 	top: 50%;
 	left: 50%;
-	min-width: 408px;
+	width: 408px;
 	min-height: 584px;
+	padding: 72px 24px 24px 24px;
 	border-radius: 4px;
 	background-color: var(--dairy);
 
@@ -694,8 +707,8 @@ a.menu-link.active-link::after {
 
 .modal-close {
 	position: absolute;
-	top: 8px;
-	right: 8px;
+	top: 24px;
+	right: 24px;
 	padding: 0px;
 
 	display: flex;
@@ -704,12 +717,19 @@ a.menu-link.active-link::after {
 
 	width: 30px;
 	height: 30px;
-	background-color: var(--cornflower);
-	color: black;
+	fill: var(--cornflower);
+	color: var(--navyblue);
 	border: 1px solid rgba(0, 0, 0, 0.01);
 	border-radius: 15px;
 	cursor: pointer;
-	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover,
+.modal-close:focus {
+	background-color: var(--ocean);
+	color: var(--white);
 }
 
 .modal-close-icon {
@@ -723,35 +743,42 @@ a.menu-link.active-link::after {
 }
 
 .form {
-	margin: 72px 24px 0px 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .form-description {
+	font-size: 16px;
 	text-align: center;
 	font-weight: 500;
 	line-height: 24px;
 	letter-spacing: 0.32px;
 	padding: 0px 10px;
+	margin-bottom: 34px;
 }
 
 .label {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	margin-bottom: 8px;
-	margin-top: 16px;
-
+	width: 100%;
 	color: var(--lightslate);
-
 	font-size: 12px;
-
 	font-weight: 400;
 	line-height: 14px;
 	letter-spacing: 0.48px;
+	margin-bottom: 26px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1) outline 250ms
-		cubic-bezier(0.4, 0, 0.2, 1);
+.label:nth-child(4) {
+	margin-bottom: 0px;
+}
+
+.label-text {
+	position: absolute;
+	top: -18px;
 }
 
 .label:hover .input,
@@ -772,41 +799,87 @@ a.menu-link.active-link::after {
 }
 
 .input {
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 14px;
 	letter-spacing: 0.48px;
+	width: 100%;
 	border-radius: 4px;
-	padding: 15px 0px 15px 37px;
+	padding: 11px 16px 11px 37px;
 	border: 1px solid var(--navyblue-modal, rgba(46, 47, 66, 0.4));
 
-	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1) outline 250ms
-		cubic-bezier(0.4, 0, 0.2, 1);
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-icon {
 	position: absolute;
 	top: 50%;
+	transform: translateY(-50%);
 	left: 16px;
+	transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-comment {
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 400;
 	line-height: 14px;
 	letter-spacing: 0.48px;
 	border-radius: 4px;
 	height: 120px;
 	border: 1px solid var(--navyblue-modal, rgba(46, 47, 66, 0.4));
-	padding-top: 8px;
-	padding-left: 16px;
+	padding: 8px 16px;
 	resize: none;
 
 	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.input-comment::placeholder {
+	font-size: 12px;
+}
+/* .policy {
+	display: flex;
+	align-items: center;
+	color: var(--lightslate, #8e8f99);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	letter-spacing: 0.48px;
+	margin-top: 16px;
+	margin-bottom: 24px;
+} */
+
+.policy-underline {
+	text-decoration: underline;
+	color: var(--iris);
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.modal-send {
+	color: var(--white, #fff);
+
+	border-radius: 4px;
+	background: var(--iris, #4d5ae5);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+	padding: 16px 32px;
+	border: none;
+	width: 170px;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-send:hover {
+	background-color: var(--ocean, #404bbf);
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
 .policy {
 	position: relative;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
 	display: flex;
 	align-items: center;
 	color: var(--lightslate, #8e8f99);
@@ -818,45 +891,43 @@ a.menu-link.active-link::after {
 	margin-bottom: 24px;
 }
 
-.policy-underline {
-	text-decoration: underline;
-	color: var(--iris);
-	cursor: pointer;
-}
-
-.terms-and-conditions-text {
-	margin-left: 8px;
-}
-
-.checkbox {
+.checkbox-default {
 	position: absolute;
-	left: -9999px;
+	opacity: 0;
+	cursor: pointer;
+	background-color: #eee;
 }
 
-.modal-send {
-	display: flex;
-	color: var(--white, #fff);
-
-	margin: 0 auto;
-	margin-bottom: 24px;
-
-	border-radius: 4px;
-	background: var(--iris, #4d5ae5);
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-	padding: 16px 32px;
-	border: none;
-
-	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-		box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.policy input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
-.modal-send:hover {
-	background-color: var(--ocean, #404bbf);
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-}
-
-.icon-checkbox {
+.icon-checkbox-check {
+	position: absolute;
 	fill: transparent;
 	border: 1px solid var(--lightslate);
-	cursor: pointer;
+	border-radius: 2px;
+	left: -22px;
+}
+
+.policy input:checked ~ .icon-checkbox-check {
+	background-color: var(--ocean);
+	color: var(--white);
+	fill: currentColor;
+	border: none;
+	left: -22px;
+}
+
+.icon-checkbox-check:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.policy input:checked ~ .icon-checkbox-check:after {
+	display: block;
 }
